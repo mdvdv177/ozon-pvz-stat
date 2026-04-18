@@ -71,8 +71,8 @@ def process_inventory_file(file_path):
             cell = cell_raw.split('-')[0]
             orders[order_id].append(cell)
 
-    # Фильтруем заказы с количеством позиций > 2
-    multi_item_orders = {oid: cells for oid, cells in orders.items() if len(cells) > 2}
+    # Фильтруем заказы с количеством позиций > 1
+    multi_item_orders = {oid: cells for oid, cells in orders.items() if len(cells) > 1}
     if not multi_item_orders:
         print("Нет заказов с несколькими позициями.")
         return
