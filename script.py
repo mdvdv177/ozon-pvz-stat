@@ -29,9 +29,9 @@ def process_inventory_file(file_path):
     orders = defaultdict(list)  # заказ -> список ячеек
     
     df = pd.read_excel(file_path, skiprows=5, usecols='B:H')
-    df.to_csv('./result.csv', index=False, encoding='utf-8')
+    df.to_csv(f'{os.path.dirname(os.path.abspath(__file__))}/result.csv', index=False, encoding='utf-8')
     
-    with open('./result.csv', 'r', encoding='utf-8-sig') as f:
+    with open(f'{os.path.dirname(os.path.abspath(__file__))}/result.csv', 'r', encoding='utf-8-sig') as f:
         # Пропускаем начальные строки до заголовка
         header_found = False
         header_row = None
